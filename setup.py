@@ -1,11 +1,12 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+dir = Path(__file__).parent
+with open(dir / 'README.md', encoding='utf-8') as f:
+  long_description = f.read()
 
 setup(
-    name='KrikNN',
+    name='kriknn',
     version='0.1',
     description='KrikNN is a library that includes various components for neural network operations and tensor manipulations. This README provides an overview of the `Tensor` class and its functionality, as well as instructions for running the tests.',
     long_description=long_description,
@@ -15,7 +16,7 @@ setup(
     url='https://github.com/andykr1k/kriknn',
     packages=find_packages(),
     install_requires=[
-        'numpy>=1.21.0',
+        'numpy',
     ],
     classifiers=[
         'License :: OSI Approved :: MIT License',
@@ -26,4 +27,4 @@ setup(
         'Bug Reports': 'https://github.com/andykr1k/kriknn/issues',
         'Source': 'https://github.com/andykr1k/kriknn',
     },
-)
+    include_package_data=True)
