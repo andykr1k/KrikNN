@@ -2,6 +2,14 @@
 
 KrikNN is a library that includes various components for neural network operations and tensor manipulations. This README provides an overview of the `Tensor` class and its functionality, as well as instructions for running the tests.
 
+![PyPI - Version](https://img.shields.io/pypi/v/kriknn?style=for-the-badge)
+![PyPI - Status](https://img.shields.io/pypi/status/kriknn?style=for-the-badge)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/andykr1k/kriknn/publish.yaml?style=for-the-badge&label=Publish)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/andykr1k/kriknn/ci.yaml?style=for-the-badge&label=CI)
+![PyPI - License](https://img.shields.io/pypi/l/kriknn?style=for-the-badge)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/andykr1k/kriknn?style=for-the-badge)
+
+
 ## Tensor Class
 
 The `Tensor` class is a fundamental component of the KrikNN library, allowing you to perform various operations on multidimensional arrays. 
