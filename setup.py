@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
-import os
+from pathlib import Path
 
-with open(os.path.join(os.getcwd(), 'README.md'), 'r', encoding='utf-8') as f:
-    long_description = f.read()
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='KrikNN',
