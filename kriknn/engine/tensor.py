@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Tensor:
     def __init__(self, data, dtype=np.float32):
         if isinstance(data, list):
@@ -14,6 +15,9 @@ class Tensor:
         self.dtype = dtype
         self.shape = self.data.shape
 
+    def __repr__(self):
+        return f"Tensor(shape={self.shape}, dtype={self.dtype}, data={self.data})"
+
     def __matmul__(self, other):
         if not isinstance(other, Tensor):
             raise TypeError(
@@ -25,6 +29,9 @@ class Tensor:
             raise TypeError(
                 f"Unsupported operand type(s) for +: 'Tensor' and '{type(other).__name__}'")
         return Tensor(self.data + other.data)
+
+    def get_data(self):
+        return self.data
 
     @staticmethod
     def zeros(shape, dtype=np.float32):

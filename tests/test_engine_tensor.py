@@ -2,7 +2,6 @@ import unittest
 import numpy as np
 from kriknn.engine.tensor import Tensor
 
-
 class TestTensor(unittest.TestCase):
     def test_tensor_initialization(self):
         # Test initialization with different data types
@@ -20,6 +19,19 @@ class TestTensor(unittest.TestCase):
         data = [[1.0, 2.0], [3.0, 4.0]]
         tensor = Tensor(data)
         self.assertEqual(tensor.shape, (2, 2))
+
+    def test_repr(self):
+        data = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+        tensor = Tensor(data)
+        expected_repr = f"Tensor(shape={tensor.shape}, dtype={tensor.dtype}, data={tensor.data})"
+        self.assertEqual(repr(tensor), expected_repr)
+
+    def test_get_data(self):
+        data = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+        tensor = Tensor(data)
+        retrieved_data = tensor.get_data()
+        expected_data = np.array(data, dtype=np.float32)
+        np.testing.assert_array_equal(retrieved_data, expected_data)
 
     def test_tensor_matrix_multiplication(self):
         data1 = [[1.0, 2.0], [3.0, 4.0]]
