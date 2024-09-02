@@ -7,7 +7,7 @@ with open(dir / 'README.md', encoding='utf-8') as f:
 
 setup(
     name='kriknn',
-    version='0.1.1',
+    version='0.1.2',
     description='KrikNN is a library that includes various components for neural network operations and tensor manipulations. This README provides an overview of the `Tensor` class and its functionality, as well as instructions for running the tests.',
     long_description=long_description,
     long_description_content_type='text/markdown',

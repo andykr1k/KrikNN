@@ -50,6 +50,12 @@ class Tensor:
             return Tensor(self.data + other.data, dtype=self.dtype)
         else:
             raise TypeError("Operand must be a Tensor.")
+        
+    def subtract(self, other):
+        if isinstance(other, Tensor):
+            return Tensor(self.data - other.data, dtype=self.dtype)
+        else:
+            raise TypeError("Operand must be a Tensor.")
 
     def mul(self, other):
         if isinstance(other, Tensor):
@@ -65,14 +71,3 @@ class Tensor:
 
     def transpose(self):
         return Tensor(self.data.T, dtype=self.dtype)
-
-    def linear(self, weight, bias=None):
-        if not isinstance(weight, Tensor):
-            raise TypeError("Weight must be a Tensor.")
-        if bias is not None and not isinstance(bias, Tensor):
-            raise TypeError("Bias must be a Tensor or None.")
-
-        if bias is not None:
-            return self.dot(weight).add(bias)
-        else:
-            return self.dot(weight)

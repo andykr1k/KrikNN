@@ -18,7 +18,7 @@ The `Tensor` class is a fundamental component of the KrikNN library, allowing yo
 
 - **Initialization**: Create tensors from data with support for different data types.
 - **Matrix Multiplication**: Use the `@` operator to perform matrix multiplication.
-- **Addition**: Use the `+` operator to perform element-wise addition.
+- **Addition/Subtract**: Use the `+` or the `-` operator to perform element-wise addition and subtraction.
 - **Shape**: Retrieve the shape of the tensor.
 
 ### Usage
@@ -41,6 +41,11 @@ print(result.data)  # Output: [[4.0, 4.0], [10.0, 8.0]]
 tensor3 = Tensor([[5.0, 6.0], [7.0, 8.0]])
 result_add = tensor1 + tensor3
 print(result_add.data)  # Output: [[6.0, 8.0], [10.0, 12.0]]
+
+# Subtraction
+tensor4 = Tensor([[5.0, 6.0], [7.0, 8.0]])
+result_sub = tensor4 - tensor1
+print(result_sub.data)  # Output: [[4.0, 4.0], [4.0, 4.0]]
 ```
 
 ## Running Tests
@@ -56,14 +61,14 @@ python -m tests/run.py
 1. **Initialization Tests**: Verify that tensors are initialized correctly with various data types.
 2. **Shape Tests**: Ensure that the shape property returns the correct dimensions.
 3. **Matrix Multiplication Tests**: Check that matrix multiplication is performed correctly.
-4. **Addition Tests**: Validate that tensor addition is working as expected.
+4. **Addition/Subtraction Tests**: Validate that tensor addition and subtraction is working as expected.
 5. **Error Handling Tests**: Ensure that appropriate errors are raised for invalid operations.
 
 ## Examples
 
 The KrikNN library provides several examples to help you get started with tensor operations:
 
-- **[Basic Tensor Operations](examples/basic_tensor_operations.py)**: Demonstrates basic tensor operations like matrix multiplication and addition.
+- **[Basic Tensor Operations](examples/basic_tensor_operations.py)**: Demonstrates basic tensor operations like matrix multiplication and addition/subtraction.
 
 ```bash
 python examples/basic_tensor_operations.py
@@ -78,5 +83,3 @@ Contributions to the KrikNN library are welcome. Please fork the repository, mak
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-
-Feel free to adjust the README based on the specific details of your project or additional features you might want to include.

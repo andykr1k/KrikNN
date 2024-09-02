@@ -20,13 +20,13 @@ class TestTensor(unittest.TestCase):
         tensor = Tensor(data)
         self.assertEqual(tensor.shape, (2, 2))
 
-    def test_repr(self):
+    def test_representation(self):
         data = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
         tensor = Tensor(data)
         expected_repr = f"Tensor(shape={tensor.shape}, dtype={tensor.dtype}, data={tensor.data})"
         self.assertEqual(repr(tensor), expected_repr)
 
-    def test_get_data(self):
+    def test_tensor_get_data(self):
         data = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
         tensor = Tensor(data)
         retrieved_data = tensor.get_data()
@@ -88,6 +88,13 @@ class TestTensor(unittest.TestCase):
         expected = np.array([[6, 8], [10, 12]], dtype=np.float32)
         np.testing.assert_array_equal(result.data, expected)
 
+    def test_subtract(self):
+        tensor1 = Tensor([[5, 6], [7, 8]])
+        tensor2 = Tensor([[1, 2], [3, 4]])
+        result = tensor1.subtract(tensor2)
+        expected = np.array([[4, 4], [4, 4]], dtype=np.float32)
+        np.testing.assert_array_equal(result.data, expected)
+
     def test_mul(self):
         tensor1 = Tensor([[1, 2], [3, 4]])
         tensor2 = Tensor([[5, 6], [7, 8]])
@@ -115,21 +122,6 @@ class TestTensor(unittest.TestCase):
         expected = np.array([[1, 4], [2, 5], [3, 6]], dtype=np.float32)
         np.testing.assert_array_equal(transposed.data, expected)
 
-    def test_linear(self):
-        x = Tensor([[1, 2], [3, 4]])
-        weight = Tensor([[1, 0], [0, 1]])
-        bias = Tensor([1, 1])
-        result = x.linear(weight, bias)
-        expected = np.array([[2, 3], [4, 5]], dtype=np.float32)
-        np.testing.assert_array_equal(result.data, expected)
-
-    def test_linear_no_bias(self):
-        x = Tensor([[1, 2], [3, 4]])
-        weight = Tensor([[1, 0], [0, 1]])
-        result = x.linear(weight, None)
-        expected = np.array([[1, 2], [3, 4]], dtype=np.float32)
-        np.testing.assert_array_equal(result.data, expected)
-
     def test_mutation(self):
         tensor = Tensor([[1, 2, 3], [4, 5, 6]])
         tensor.data[1, 1] = 10
@@ -138,7 +130,6 @@ class TestTensor(unittest.TestCase):
     def test_shape_calculation(self):
         tensor_1d = Tensor([1, 2, 3])
         self.assertEqual(tensor_1d.shape, (3,))
-
 
 if __name__ == '__main__':
     unittest.main()
