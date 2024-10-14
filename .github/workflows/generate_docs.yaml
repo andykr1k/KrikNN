@@ -1,8 +1,8 @@
 name: Generate Documentation
 
 on:
-  release:
-    types: [published, updated]
+  push:
+  pull_request:
 
 permissions:
   contents: write
